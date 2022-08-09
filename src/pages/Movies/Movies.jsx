@@ -1,7 +1,3 @@
 export const Movies = () => {
-  return (
-    <main>
-      <h1>Movies</h1>
-    </main>
-  );
+  return <h1>Movies</h1>;
 };

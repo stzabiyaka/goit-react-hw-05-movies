@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 
 export const Application = styled.div`
-  height: 100vh;
+  max-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
