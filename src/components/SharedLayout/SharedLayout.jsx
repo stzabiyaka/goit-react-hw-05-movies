@@ -1,15 +1,15 @@
 import { Outlet } from 'react-router-dom';
-import { Header, Link, Container, SiteNav } from '.';
+import { Navigation } from 'components/Navigation';
+import { Header, Container } from '.';
 export const SharedLayout = () => {
   return (
-    <Container>
+    <>
       <Header>
-        <SiteNav>
-          <Link to="/">Home</Link>
-          <Link to="/movies">Movies</Link>
-        </SiteNav>
+        <Navigation />
       </Header>
-      <Outlet />
-    </Container>
+      <Container>
+        <Outlet />
+      </Container>
+    </>
   );
 };
