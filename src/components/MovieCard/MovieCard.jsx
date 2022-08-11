@@ -1,20 +1,28 @@
 import PropTypes from 'prop-types';
-import { Card, Poster } from './MovieCard.styled';
+import { NoImage } from 'utilities/NoImage.styled';
+import { Poster, Title, MovieLink } from './MovieCard.styled';
 
 const BASE_URL = 'https://image.tmdb.org/t/p/w200/';
 
-export const MovieCard = ({ title, posterPath }) => {
+export const MovieCard = ({ title, posterPath, movieId }) => {
   return (
-    <Card>
-      {posterPath && (
-        <Poster src={`${BASE_URL}${posterPath}`} alt={`${title} poster`} />
-      )}
-      {title}
-    </Card>
+    <li>
+      <MovieLink to={`/movies/${movieId}`}>
+        <article>
+          {posterPath ? (
+            <Poster src={`${BASE_URL}${posterPath}`} alt={`${title} poster`} />
+          ) : (
+            <NoImage>Sorry, no poster available :(</NoImage>
+          )}
+          <Title>{title}</Title>
+        </article>
+      </MovieLink>
+    </li>
   );
 };
 
 MovieCard.propTypes = {
+  movieId: PropTypes.number.isRequired,
   title: PropTypes.string.isRequired,
   posterPath: PropTypes.string,
 };

@@ -8,6 +8,7 @@ export const MoviesGallery = ({ movies }) => {
       {movies.map(movie => (
         <MovieCard
           key={movie.id}
+          movieId={movie.id}
           title={movie.title}
           posterPath={movie.poster_path}
         />

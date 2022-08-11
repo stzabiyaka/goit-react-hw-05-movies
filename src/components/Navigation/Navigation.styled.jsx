@@ -17,7 +17,13 @@ export const Link = styled(NavLink)`
   vertical-align: middle;
 
   &:not(:last-child) {
+    margin-left: 24px;
     margin-right: 12px;
+  }
+
+  &:hover,
+  &:focus {
+    color: #ffa600ba;
   }
 
   &.active {

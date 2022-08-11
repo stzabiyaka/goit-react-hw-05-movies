@@ -9,7 +9,13 @@ const fetchData = async ({ path = '' }) => {
 
 export const fetchTrending = async () => {
   return await fetchData({
-    path: `${BASE_URL}trending/movie/day?api_key=${ACESS_KEY}`,
+    path: `${BASE_URL}trending/movie/day?api_key=${ACESS_KEY}&include_adult=false`,
+  });
+};
+
+export const fetchMoviesBySearch = async ({ query, page = 1 }) => {
+  return await fetchData({
+    path: `${BASE_URL}search/movie?api_key=${ACESS_KEY}&language=en-US&query=${query}&page=${page}&include_adult=false`,
   });
 };
 
@@ -19,7 +25,13 @@ export const fetchMovieById = async ({ movieId }) => {
   });
 };
 
-export const fetchMovieReviews = async ({ movieId, page }) => {
+export const fetchMovieCredits = async ({ movieId }) => {
+  return await fetchData({
+    path: `${BASE_URL}movie/${movieId}/credits?api_key=${ACESS_KEY}&language=en-US`,
+  });
+};
+
+export const fetchMovieReviews = async ({ movieId, page = 1 }) => {
   return await fetchData({
     path: `${BASE_URL}movie/${movieId}/reviews?api_key=${ACESS_KEY}&language=en-US&page=${page}`,
   });

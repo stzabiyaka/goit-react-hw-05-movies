@@ -1,5 +1,5 @@
 import { Routes, Route } from 'react-router-dom';
-import * as moviesApi from '../../services/movies-api';
+
 import { SharedLayout } from 'components/SharedLayout';
 import { Home } from 'pages/Home';
 import { Movies } from 'pages/Movies';
@@ -14,10 +14,7 @@ export const App = () => {
     <Application>
       <Routes>
         <Route path="/" element={<SharedLayout />}>
-          <Route
-            index
-            element={<Home getContent={moviesApi.fetchTrending} />}
-          />
+          <Route index element={<Home />} />
           <Route path="/movies" element={<Movies />} />
           <Route path="/movies/:movieId" element={<MovieDetails />}>
             <Route path="cast" element={<Cast />} />
