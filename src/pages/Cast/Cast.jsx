@@ -1,34 +1,15 @@
-import { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
-import * as moviesApi from '../../services/movies-api';
-import { STATE } from 'utilities/state';
+import { useFetchCast } from 'hooks/useFetchCast';
+import { STATUS } from 'utilities/status';
 import { Notification } from 'components/Notification';
 import { CastGallery } from 'components/CastGallery';
 
 export const Cast = () => {
-  const [cast, setCast] = useState(null);
-  const { movieId } = useParams();
-  const [status, setStatus] = useState(STATE.IDLE);
-
-  useEffect(() => {
-    setStatus(STATE.PENDING);
-    moviesApi
-      .fetchMovieCredits({ movieId })
-      .then(data => {
-        setCast(data.cast);
-        setStatus(STATE.RESOLVED);
-      })
-      .catch(({ message }) => {
-        console.log(message);
-        setStatus(STATE.REJECTED);
-      });
-  }, [movieId]);
-
+  const { cast, status } = useFetchCast();
   return (
     <>
-      {status === STATE.PENDING && <Notification message="Loading..." />}
-      {status === STATE.RESOLVED && <CastGallery cast={cast} />}
-      {status === STATE.REJECTED && (
+      {status === STATUS.PENDING && <Notification message="Loading..." />}
+      {status === STATUS.RESOLVED && <CastGallery cast={cast} />}
+      {status === STATUS.REJECTED && (
         <Notification message="Ooops! Something went wrong :(... please reload the page." />
       )}
     </>

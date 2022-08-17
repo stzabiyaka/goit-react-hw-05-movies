@@ -1,9 +1,11 @@
-import PropTypes from 'prop-types';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { useState } from 'react';
-import { Form } from './SearchForm.styled';
+import { Field, Form, SubmitBtn } from './SearchForm.styled';
 
-export const SearchForm = ({ onSubmit }) => {
+export const SearchForm = () => {
   const [query, setQuery] = useState('');
+  const navigate = useNavigate();
+  const location = useLocation();
 
   const handleChange = event => {
     setQuery(event.target.value);
@@ -13,24 +15,22 @@ export const SearchForm = ({ onSubmit }) => {
     event.preventDefault();
     if (!query.trim()) {
       alert('Please enter at least one symbol.');
+      setQuery('');
       return;
     }
-    onSubmit(query.toLocaleLowerCase());
+    navigate({ ...location, search: `query=${query}` });
     setQuery('');
   };
 
   return (
     <Form onSubmit={handleSubmit}>
-      <input
+      <Field
         type="text"
         value={query}
         onChange={handleChange}
         placeholder="Search movies"
       />
+      <SubmitBtn>Search</SubmitBtn>
     </Form>
   );
-};
-
-SearchForm.propTypes = {
-  onSubmit: PropTypes.func.isRequired,
 };

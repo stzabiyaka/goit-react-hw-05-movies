@@ -6,7 +6,7 @@ export const Item = styled.li`
   align-items: center;
 `;
 
-export const Info = styled.article`
+export const Info = styled.div`
   display: flex;
   flex-direction: column;
 `;

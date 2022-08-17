@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 import { List } from './ReviewsList.styled';
 
 export const ReviewsList = ({ reviews }) => {
-  console.log(reviews);
   return (
     <List>
       {reviews.map(review => {

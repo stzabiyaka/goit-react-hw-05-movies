@@ -6,16 +6,17 @@ import {
   Overview,
   InfoText,
   Genres,
-} from './MovieDetailsCard.styled';
+} from './MovieDetailsArticle.styled';
 import { PageTitle } from 'components/PageTitle';
 import { NoImage } from 'utilities/NoImage.styled';
 
 const BASE_URL = 'https://image.tmdb.org/t/p/w300/';
 
-export const MovieDetailsCard = ({
+export const MovieDetailsArticle = ({
   title,
   posterPath,
   releaseDate,
+  userScore,
   overview,
   genres,
 }) => {
@@ -28,6 +29,7 @@ export const MovieDetailsCard = ({
       )}
       <Info>
         <PageTitle pageTitle={`${title} (${releaseDate})`} />
+        <InfoText>User Score: {Math.round(userScore * 10)}%</InfoText>
         <Overview>Overview</Overview>
         <InfoText>{overview}</InfoText>
         <Genres>Genres</Genres>
@@ -37,10 +39,11 @@ export const MovieDetailsCard = ({
   );
 };
 
-MovieDetailsCard.propTypes = {
+MovieDetailsArticle.propTypes = {
   title: PropTypes.string.isRequired,
   posterPath: PropTypes.string,
   releaseDate: PropTypes.string.isRequired,
+  userScore: PropTypes.number.isRequired,
   overview: PropTypes.string.isRequired,
   genres: PropTypes.string.isRequired,
 };

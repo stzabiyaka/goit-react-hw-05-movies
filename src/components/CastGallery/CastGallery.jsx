@@ -1,4 +1,4 @@
-import { CastGalleryItem } from 'components/CastGalleryItem';
+import { CastGalleryCard } from 'components/CastGalleryCard';
 import PropTypes from 'prop-types';
 import { Gallery } from './CastGallery.styled';
 
@@ -9,7 +9,7 @@ export const CastGallery = ({ cast }) => {
         <Gallery>
           {cast.map(actor => {
             return (
-              <CastGalleryItem
+              <CastGalleryCard
                 key={actor.id}
                 name={actor.name}
                 character={actor.character}

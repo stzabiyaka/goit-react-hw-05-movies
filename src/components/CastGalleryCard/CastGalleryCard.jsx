@@ -1,10 +1,10 @@
 import PropTypes from 'prop-types';
 import { NoImage } from 'utilities/NoImage.styled';
-import { Info, Item, Photo, Name, InfoText } from './CastGalleryItem.styled';
+import { Info, Item, Photo, Name, InfoText } from './CastGalleryCard.styled';
 
 const BASE_URL = 'https://image.tmdb.org/t/p/w200/';
 
-export const CastGalleryItem = ({ name, character, photoPath }) => {
+export const CastGalleryCard = ({ name, character, photoPath }) => {
   return (
     <Item>
       {photoPath ? (
@@ -20,7 +20,7 @@ export const CastGalleryItem = ({ name, character, photoPath }) => {
   );
 };
 
-CastGalleryItem.propTypes = {
+CastGalleryCard.propTypes = {
   name: PropTypes.string.isRequired,
   character: PropTypes.string.isRequired,
   photoPath: PropTypes.string,
