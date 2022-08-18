@@ -10,7 +10,7 @@ const Home = () => {
 
   return (
     <>
-      <PageTitle pageTitle="Tranding Today" />
+      <PageTitle pageTitle="Trending Today" />
       {status === STATUS.RESOLVED && (
         <Section>
           <MoviesGallery movies={movies} />
