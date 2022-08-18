@@ -1,2 +1,1 @@
-export * from './Cast';
-export * from './Cast.styled';
+export { default } from './Cast';

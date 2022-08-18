@@ -1,8 +1,8 @@
 import PropTypes from 'prop-types';
-import { MovieCard } from 'components/MovieCard';
+import MovieCard from 'components/MovieCard';
 import { Gallery } from '.';
 
-export const MoviesGallery = ({ movies }) => {
+const MoviesGallery = ({ movies }) => {
   return (
     <Gallery>
       {movies.map(movie => (
@@ -26,3 +26,5 @@ MoviesGallery.propTypes = {
     }).isRequired
   ).isRequired,
 };
+
+export default MoviesGallery;

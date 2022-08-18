@@ -2,7 +2,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import { Field, Form, SubmitBtn } from './SearchForm.styled';
 
-export const SearchForm = () => {
+const SearchForm = () => {
   const [query, setQuery] = useState('');
   const navigate = useNavigate();
   const location = useLocation();
@@ -34,3 +34,5 @@ export const SearchForm = () => {
     </Form>
   );
 };
+
+export default SearchForm;

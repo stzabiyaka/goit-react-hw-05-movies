@@ -1,8 +1,8 @@
-import { CastGalleryCard } from 'components/CastGalleryCard';
+import CastGalleryCard from 'components/CastGalleryCard';
 import PropTypes from 'prop-types';
 import { Gallery } from './CastGallery.styled';
 
-export const CastGallery = ({ cast }) => {
+const CastGallery = ({ cast }) => {
   return (
     <>
       {cast && (
@@ -32,3 +32,4 @@ CastGallery.propTypes = {
     }).isRequired
   ).isRequired,
 };
+export default CastGallery;

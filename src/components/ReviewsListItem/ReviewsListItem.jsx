@@ -11,7 +11,7 @@ import {
 
 const BASE_URL = 'https://image.tmdb.org/t/p/w200/';
 
-export const ReviewListItem = ({ author, content, avatarPath }) => {
+const ReviewListItem = ({ author, content, avatarPath }) => {
   const avatar =
     avatarPath && avatarPath.startsWith('/http')
       ? avatarPath.slice(1)
@@ -38,3 +38,5 @@ ReviewListItem.propTypes = {
   content: PropTypes.string.isRequired,
   avatarPath: PropTypes.string,
 };
+
+export default ReviewListItem;

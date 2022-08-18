@@ -1,6 +1,6 @@
 import { Link, SiteNav } from '.';
 
-export const Navigation = () => {
+const Navigation = () => {
   return (
     <SiteNav>
       <Link to="/">Home</Link>
@@ -8,3 +8,5 @@ export const Navigation = () => {
     </SiteNav>
   );
 };
+
+export default Navigation;

@@ -1,9 +1,9 @@
+import { useRef } from 'react';
 import { Outlet, useLocation } from 'react-router-dom';
 import { useFetchMovieDetails } from 'hooks/useFetchMovieDetails';
-import { Section } from 'components/Section';
-import { Notification } from 'components/Notification';
-import { STATUS } from 'utilities/status';
-import { MovieDetailsArticle } from 'components/MovieDetailsArticle';
+import Section from 'components/Section';
+import Notification from 'components/Notification';
+import MovieDetailsArticle from 'components/MovieDetailsArticle';
 import {
   AdditionalInfo,
   InfoLink,
@@ -11,17 +11,19 @@ import {
   Arrow,
   BackLink,
 } from '.';
+import { STATUS } from 'utilities/status';
 
-export const MovieDetails = () => {
+const MovieDetails = () => {
   const location = useLocation();
+  const backHref = useRef(location.state?.from ?? '/');
+
   const { movieDetails, status } = useFetchMovieDetails();
   return (
     <>
-      <BackLink to={location.state.from}>
+      <BackLink to={backHref.current}>
         <Arrow />
         Go Back
       </BackLink>
-      {status === STATUS.PENDING && <Notification message="Loading..." />}
       {status === STATUS.RESOLVED && (
         <>
           <article>
@@ -59,3 +61,5 @@ export const MovieDetails = () => {
     </>
   );
 };
+
+export default MovieDetails;

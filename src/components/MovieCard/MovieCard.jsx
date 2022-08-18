@@ -5,7 +5,7 @@ import { Poster, Title, MovieLink } from './MovieCard.styled';
 
 const BASE_URL = 'https://image.tmdb.org/t/p/w200/';
 
-export const MovieCard = ({ title, posterPath, movieId }) => {
+const MovieCard = ({ title, posterPath, movieId }) => {
   const location = useLocation();
   return (
     <li>
@@ -28,3 +28,5 @@ MovieCard.propTypes = {
   title: PropTypes.string.isRequired,
   posterPath: PropTypes.string,
 };
+
+export default MovieCard;

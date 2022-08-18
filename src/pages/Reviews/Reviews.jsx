@@ -1,13 +1,12 @@
+import ReviewsList from 'components/ReviewsList';
+import Notification from 'components/Notification';
 import { useFetchReviews } from 'hooks/useFetchReviews';
 import { STATUS } from 'utilities/status';
-import { Notification } from 'components/Notification';
-import { ReviewsList } from 'components/ReviewsList';
 
-export const Reviews = () => {
+const Reviews = () => {
   const { reviews, status } = useFetchReviews();
   return (
     <>
-      {status === STATUS.PENDING && <Notification message="Loading..." />}
       {status === STATUS.RESOLVED && reviews ? (
         <ReviewsList reviews={reviews} />
       ) : (
@@ -19,3 +18,4 @@ export const Reviews = () => {
     </>
   );
 };
+export default Reviews;

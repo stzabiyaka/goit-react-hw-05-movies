@@ -1,2 +1,1 @@
-export * from './NotFound';
-export * from './NotFound.styled';
+export { default } from './NotFound';

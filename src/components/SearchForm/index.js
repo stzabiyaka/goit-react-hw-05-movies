@@ -1,2 +1,2 @@
-export * from './SearchForm';
+export { default } from './SearchForm';
 export * from './SearchForm.styled';

@@ -4,7 +4,7 @@ import { Info, Item, Photo, Name, InfoText } from './CastGalleryCard.styled';
 
 const BASE_URL = 'https://image.tmdb.org/t/p/w200/';
 
-export const CastGalleryCard = ({ name, character, photoPath }) => {
+const CastGalleryCard = ({ name, character, photoPath }) => {
   return (
     <Item>
       {photoPath ? (
@@ -25,3 +25,5 @@ CastGalleryCard.propTypes = {
   character: PropTypes.string.isRequired,
   photoPath: PropTypes.string,
 };
+
+export default CastGalleryCard;

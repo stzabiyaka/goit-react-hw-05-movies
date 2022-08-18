@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+import PageTitle from 'components/PageTitle';
 import {
   Container,
   Poster,
@@ -7,12 +8,11 @@ import {
   InfoText,
   Genres,
 } from './MovieDetailsArticle.styled';
-import { PageTitle } from 'components/PageTitle';
 import { NoImage } from 'utilities/NoImage.styled';
 
 const BASE_URL = 'https://image.tmdb.org/t/p/w300/';
 
-export const MovieDetailsArticle = ({
+const MovieDetailsArticle = ({
   title,
   posterPath,
   releaseDate,
@@ -28,7 +28,7 @@ export const MovieDetailsArticle = ({
         <NoImage>Sorry, no poster available :(</NoImage>
       )}
       <Info>
-        <PageTitle pageTitle={`${title} (${releaseDate})`} />
+        <PageTitle pageTitle={`${title} (${releaseDate})`} noIndent />
         <InfoText>User Score: {Math.round(userScore * 10)}%</InfoText>
         <Overview>Overview</Overview>
         <InfoText>{overview}</InfoText>
@@ -47,3 +47,5 @@ MovieDetailsArticle.propTypes = {
   overview: PropTypes.string.isRequired,
   genres: PropTypes.string.isRequired,
 };
+
+export default MovieDetailsArticle;

@@ -1,2 +1,2 @@
-export * from './ReviewsListItem';
+export { default } from './ReviewsListItem';
 export * from './ReviewsListItem.styled';

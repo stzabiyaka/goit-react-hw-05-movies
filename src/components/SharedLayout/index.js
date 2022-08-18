@@ -1,2 +1,2 @@
-export * from './SharedLayout';
+export { default } from './SharedLayout';
 export * from './SharedLayout.styled';

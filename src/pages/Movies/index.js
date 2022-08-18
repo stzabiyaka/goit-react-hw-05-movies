@@ -1,2 +1,1 @@
-export * from './Movies';
-export * from './Movies.styled';
+export { default } from './Movies';

@@ -1,2 +1,2 @@
-export * from './PageTitle';
+export { default } from './PageTitle';
 export * from './PageTitle.styled';

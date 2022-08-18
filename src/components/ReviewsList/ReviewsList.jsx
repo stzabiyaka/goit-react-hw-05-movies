@@ -1,4 +1,4 @@
-import { ReviewListItem } from 'components/ReviewsListItem';
+import ReviewListItem from 'components/ReviewsListItem';
 import PropTypes from 'prop-types';
 
 import { List } from './ReviewsList.styled';
@@ -31,3 +31,5 @@ ReviewsList.propTypes = {
     }).isRequired
   ).isRequired,
 };
+
+export default ReviewsList;
