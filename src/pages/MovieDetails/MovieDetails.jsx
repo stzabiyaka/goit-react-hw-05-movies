@@ -1,4 +1,4 @@
-import { useRef } from 'react';
+import { Suspense, useRef } from 'react';
 import { Outlet, useLocation } from 'react-router-dom';
 import { useFetchMovieDetails } from 'hooks/useFetchMovieDetails';
 import Section from 'components/Section';
@@ -48,7 +48,9 @@ const MovieDetails = () => {
                   </li>
                 </ul>
                 <AdditionalInfoDisplay>
-                  <Outlet />
+                  <Suspense>
+                    <Outlet />
+                  </Suspense>
                 </AdditionalInfoDisplay>
               </AdditionalInfo>
             </Section>

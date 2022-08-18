@@ -9,12 +9,13 @@ import { useSearchParams } from 'react-router-dom';
 
 const Movies = () => {
   const [searchParams] = useSearchParams();
+  const query = searchParams.get('query') ?? '';
 
-  const { movies, status } = useFetchMoviesBySearch(searchParams.get('query'));
+  const { movies, status } = useFetchMoviesBySearch(query);
 
   return (
     <>
-      <SearchForm />
+      <SearchForm value={query} />
       {status === STATUS.PENDING && <Loader />}
       {status === STATUS.RESOLVED && (
         <Section>
